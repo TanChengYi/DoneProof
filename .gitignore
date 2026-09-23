@@ -6,8 +6,8 @@ coverage/
 playwright-report/
 test-results/
 .doneproof/
+.worktrees/
 *.log
 .env
 .env.*
 !.env.example
-
