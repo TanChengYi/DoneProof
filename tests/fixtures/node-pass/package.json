@@ -1,0 +1,11 @@
+{
+  "name": "doneproof-node-fixture",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  }
+}

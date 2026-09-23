@@ -1,7 +1,7 @@
 # DoneProof Progress
 
 **Current phase:** Core domain services
-**Next milestone:** Project detection and Git fingerprinting
+**Next milestone:** Safe command execution
 **Overall status:** In progress
 
 ## Milestones
@@ -14,7 +14,7 @@
 - [x] Write the detailed implementation plan.
 - [x] Scaffold the application and quality gates.
 - [x] Implement domain model and persistence.
-- [ ] Implement project detection and Git fingerprinting.
+- [x] Implement project detection and Git fingerprinting.
 - [ ] Implement safe command execution.
 - [ ] Implement browser proof scenarios.
 - [ ] Implement evidence mapping and verdicts.
