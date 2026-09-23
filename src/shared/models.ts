@@ -74,6 +74,7 @@ export interface EvidenceArtifact {
   path: string;
   sha256: string;
   mediaType: string;
+  integrity: 'verified' | 'missing' | 'mismatch';
 }
 
 export interface EvidenceResult {

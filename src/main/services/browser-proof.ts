@@ -63,7 +63,8 @@ async function captureScreenshot(page: Page, directory: string, name: string, fu
   return {
     path,
     sha256: createHash('sha256').update(content).digest('hex'),
-    mediaType: 'image/png'
+    mediaType: 'image/png',
+    integrity: 'verified'
   };
 }
 
