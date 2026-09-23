@@ -1,0 +1,37 @@
+{
+  "id": "run-mixed",
+  "projectId": "project-1",
+  "status": "completed",
+  "startedAt": "2026-09-23T10:00:00.000Z",
+  "completedAt": "2026-09-23T10:00:07.000Z",
+  "fingerprint": { "versioned": true, "branch": "main", "head": "abc123def456", "diffHash": "clean-hash", "contractHash": "contract-v1" },
+  "contract": {
+    "version": 1,
+    "goal": "Ship <script>alert('unsafe')</script> with proof",
+    "criteria": [
+      { "id": "tests", "text": "Tests pass", "required": true, "evidenceIds": ["unit"] },
+      { "id": "browser", "text": "Browser flow works", "required": true, "evidenceIds": ["flow"] },
+      { "id": "notes", "text": "Release notes exist", "required": false, "evidenceIds": [] }
+    ],
+    "checks": [],
+    "scenarios": []
+  },
+  "evidence": [
+    {
+      "id": "unit", "label": "Unit tests", "kind": "command", "criterionIds": ["tests"], "status": "passed",
+      "startedAt": "2026-09-23T10:00:00.000Z", "completedAt": "2026-09-23T10:00:02.000Z", "durationMs": 2000,
+      "output": "39 tests passed", "artifacts": []
+    },
+    {
+      "id": "flow", "label": "Browser flow", "kind": "browser", "criterionIds": ["browser"], "status": "passed",
+      "startedAt": "2026-09-23T10:00:02.000Z", "completedAt": "2026-09-23T10:00:07.000Z", "durationMs": 5000,
+      "artifacts": [{ "path": "missing-proof.png", "sha256": "0000000000000000000000000000000000000000000000000000000000000000", "mediaType": "image/png", "integrity": "missing" }]
+    }
+  ],
+  "criteria": [
+    { "criterionId": "tests", "verdict": "proven", "reason": "All referenced evidence passed", "evidenceIds": ["unit"] },
+    { "criterionId": "browser", "verdict": "unproven", "reason": "Artifact integrity is missing", "evidenceIds": ["flow"] },
+    { "criterionId": "notes", "verdict": "unproven", "reason": "No evidence attached", "evidenceIds": [] }
+  ],
+  "verdict": "unproven"
+}

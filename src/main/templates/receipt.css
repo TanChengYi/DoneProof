@@ -1,0 +1,27 @@
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172018; background: #edf0e9; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 40px 24px; }
+main { width: min(980px, 100%); margin: 0 auto; background: #fff; border: 1px solid #d8ded4; box-shadow: 0 20px 60px rgba(28, 42, 31, .1); }
+header, section { padding: 28px 34px; border-bottom: 1px solid #e4e8e1; }
+header { background: #15251b; color: #f7f5ed; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: 34px; letter-spacing: -.03em; margin-bottom: 8px; }
+h2 { font-size: 18px; letter-spacing: -.01em; }
+.eyebrow { color: #9fbc9f; font-size: 12px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+.verdict { display: inline-flex; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.proven { color: #185b36; background: #dff5e7; }
+.failed { color: #862d27; background: #fbe2df; }
+.unproven { color: #72530d; background: #fff0c7; }
+.notice { border-left: 4px solid #d69e2e; background: #fff8e6; padding: 14px 16px; margin-top: 18px; }
+.integrity { color: #862d27; font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.card { border: 1px solid #e0e5dd; border-radius: 10px; padding: 16px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 8px; border-bottom: 1px solid #e7eae5; text-align: left; vertical-align: top; }
+th { color: #607064; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+code, pre { font-family: "SFMono-Regular", Consolas, monospace; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f5f7f3; border-radius: 8px; padding: 14px; }
+details summary { cursor: pointer; font-weight: 700; }
+img { max-width: 100%; height: auto; border: 1px solid #d8ded4; border-radius: 8px; margin-top: 12px; }
+.muted { color: #68746a; }
+@media print { :root { background: #fff; } body { padding: 0; } main { box-shadow: none; border: 0; width: 100%; } details { display: block; } section, .card { break-inside: avoid; } }

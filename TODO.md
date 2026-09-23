@@ -1,7 +1,7 @@
 # DoneProof Progress
 
 **Current phase:** Core domain services
-**Next milestone:** Standalone receipts
+**Next milestone:** Desktop interface
 **Overall status:** In progress
 
 ## Milestones
@@ -19,7 +19,7 @@
 - [x] Implement browser proof scenarios.
 - [x] Implement evidence mapping and verdicts.
 - [ ] Implement the desktop interface.
-- [ ] Implement standalone receipts.
+- [x] Implement standalone receipts.
 - [ ] Complete unit and integration tests.
 - [ ] Complete Electron end-to-end tests.
 - [ ] Package and smoke-test the Windows build.
