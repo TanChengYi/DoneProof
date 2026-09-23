@@ -1,7 +1,7 @@
 # DoneProof Progress
 
 **Current phase:** Core domain services
-**Next milestone:** Browser proof scenarios
+**Next milestone:** Evidence mapping and verdicts
 **Overall status:** In progress
 
 ## Milestones
@@ -16,7 +16,7 @@
 - [x] Implement domain model and persistence.
 - [x] Implement project detection and Git fingerprinting.
 - [x] Implement safe command execution.
-- [ ] Implement browser proof scenarios.
+- [x] Implement browser proof scenarios.
 - [ ] Implement evidence mapping and verdicts.
 - [ ] Implement the desktop interface.
 - [ ] Implement standalone receipts.

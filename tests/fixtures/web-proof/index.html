@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8"><title>DoneProof fixture</title></head>
+  <body>
+    <main>
+      <h1>Sign in</h1>
+      <label>Email <input id="email" type="email"></label>
+      <label>Password <input id="password" type="password"></label>
+      <button id="sign-in">Continue</button>
+      <section id="dashboard" hidden>
+        <h2>Welcome back</h2>
+        <p data-testid="proof-ready">Proof ready</p>
+      </section>
+    </main>
+    <script>
+      document.querySelector('#sign-in').addEventListener('click', () => {
+        history.pushState({}, '', '/dashboard');
+        document.querySelector('#dashboard').hidden = false;
+      });
+    </script>
+  </body>
+</html>

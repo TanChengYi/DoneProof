@@ -18,7 +18,7 @@ export const checkDefinitionSchema = z.object({
   maxOutputBytes: z.number().int().min(1_024).max(50_000_000)
 });
 
-const browserStepSchema = z.discriminatedUnion('type', [
+export const browserStepSchema = z.discriminatedUnion('type', [
   z.object({ id: idSchema, type: z.literal('visit'), path: z.string().min(1).max(2_000) }),
   z.object({ id: idSchema, type: z.literal('click'), selector: z.string().min(1).max(2_000) }),
   z.object({ id: idSchema, type: z.literal('fill'), selector: z.string().min(1).max(2_000), value: z.string().max(10_000) }),

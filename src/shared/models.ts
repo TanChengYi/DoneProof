@@ -38,6 +38,22 @@ export interface BrowserScenario {
   steps: BrowserStep[];
 }
 
+export interface BrowserStepResult {
+  id: string;
+  type: BrowserStep['type'];
+  status: EvidenceStatus;
+  durationMs: number;
+  reason?: string;
+}
+
+export interface BrowserEvidenceResult {
+  status: EvidenceStatus;
+  durationMs: number;
+  steps: BrowserStepResult[];
+  screenshots: EvidenceArtifact[];
+  reason?: string;
+}
+
 export interface ProofContract {
   version: 1;
   goal: string;
