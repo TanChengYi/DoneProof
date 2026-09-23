@@ -13,7 +13,7 @@ function createWindow(): BrowserWindow {
     backgroundColor: '#0b0f14',
     title: 'DoneProof',
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: join(__dirname, '../preload/index.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true
@@ -34,7 +34,11 @@ function createWindow(): BrowserWindow {
 }
 
 void app.whenReady().then(async () => {
-  const store = await createStore(join(app.getPath('userData'), 'store'));
+  if (app.isPackaged) {
+    process.env['PLAYWRIGHT_BROWSERS_PATH'] = join(process.resourcesPath, 'app.asar.unpacked', 'node_modules', 'playwright-core', '.local-browsers');
+  }
+  const userDataRoot = process.env['DONEPROOF_USER_DATA'] ?? app.getPath('userData');
+  const store = await createStore(join(userDataRoot, 'store'));
   registerIpc({ store });
   createWindow();
   app.on('activate', () => {

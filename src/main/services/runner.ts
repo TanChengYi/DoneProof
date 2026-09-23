@@ -28,6 +28,20 @@ export interface SafeRunner {
   run(spec: CommandSpec, hooks?: RunnerHooks, signal?: AbortSignal): Promise<CommandResult>;
 }
 
+function spawnCommand(spec: CommandSpec): { executable: string; args: string[] } {
+  if (process.platform !== 'win32' || !spec.executable.toLocaleLowerCase('en-US').endsWith('.cmd')) {
+    return { executable: spec.executable, args: spec.args };
+  }
+  if (!/^[a-zA-Z0-9_.:-]+$/.test(spec.executable) || spec.args.some((argument) => !/^[a-zA-Z0-9_./:@=+-]+$/.test(argument))) {
+    throw new Error('Unsafe Windows command-script argument');
+  }
+  const commandLine = [spec.executable, ...spec.args].join(' ');
+  return {
+    executable: process.env['ComSpec'] ?? 'cmd.exe',
+    args: ['/d', '/s', '/c', commandLine]
+  };
+}
+
 function terminateProcessTree(child: ChildProcessWithoutNullStreams): void {
   if (!child.pid || child.killed) return;
   if (process.platform === 'win32') {
@@ -101,7 +115,8 @@ export function createRunner(): SafeRunner {
         const timeout = setTimeout(() => stop(`Timed out after ${spec.timeoutMs} ms`), spec.timeoutMs);
 
         try {
-          child = spawn(spec.executable, spec.args, {
+          const command = spawnCommand(spec);
+          child = spawn(command.executable, command.args, {
             cwd: spec.cwd,
             shell: false,
             windowsHide: true,

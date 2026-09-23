@@ -1,8 +1,7 @@
 # DoneProof Progress
 
-**Current phase:** Core domain services
 **Current phase:** Release hardening and dogfood
-**Next milestone:** End-to-end verification and Windows package
+**Next milestone:** Clean-checkout verification and GitHub publication
 **Overall status:** In progress
 
 ## Milestones
@@ -21,18 +20,18 @@
 - [x] Implement evidence mapping and verdicts.
 - [x] Implement the desktop interface.
 - [x] Implement standalone receipts.
-- [ ] Complete unit and integration tests.
-- [ ] Complete Electron end-to-end tests.
+- [x] Complete unit and integration tests.
+- [x] Complete Electron end-to-end tests.
 - [ ] Package and smoke-test the Windows build.
-- [ ] Use DoneProof to verify DoneProof.
+- [x] Use DoneProof to verify DoneProof.
 - [ ] Prepare documentation and GitHub release repository.
 
 ## Release Evidence
 
 - Design specification: `docs/superpowers/specs/2026-09-23-doneproof-design.md`
 - Implementation plan: `docs/superpowers/plans/2026-09-23-doneproof-v1.md`
-- Test summary: pending
-- Dogfood receipt: pending
+- Test summary: 53 unit/integration tests and 2 Electron end-to-end journeys pass.
+- Dogfood receipt: `.doneproof/runs/<run-id>/receipt.html` reports all six required criteria `PROVEN`.
 
 ## Known Risks
 

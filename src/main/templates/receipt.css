@@ -15,7 +15,9 @@ h2 { font-size: 18px; letter-spacing: -.01em; }
 .notice { border-left: 4px solid #d69e2e; background: #fff8e6; padding: 14px 16px; margin-top: 18px; }
 .integrity { color: #862d27; font-weight: 700; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
-.card { border: 1px solid #e0e5dd; border-radius: 10px; padding: 16px; }
+.card { min-width: 0; border: 1px solid #e0e5dd; border-radius: 10px; padding: 16px; }
+.card p { overflow-wrap: anywhere; word-break: break-all; }
+.card code { white-space: normal; overflow-wrap: anywhere; word-break: break-all; }
 table { width: 100%; border-collapse: collapse; }
 th, td { padding: 12px 8px; border-bottom: 1px solid #e7eae5; text-align: left; vertical-align: top; }
 th { color: #607064; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }

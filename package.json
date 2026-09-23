@@ -10,10 +10,13 @@
     "preview": "electron-vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "npm run build && playwright test",
     "generate:receipt-fixture": "tsx scripts/generate-receipt-fixture.ts",
+    "dogfood:contract": "node scripts/create-dogfood-contract.mjs",
+    "dogfood": "npm run dogfood:contract && tsx scripts/dogfood.ts",
     "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
     "lint": "eslint .",
-    "package:win": "npm run build && electron-builder --win nsis portable"
+    "package:win": "npm run build && node scripts/install-packaged-browser.mjs && electron-builder --win nsis portable"
   },
   "dependencies": {
     "lucide-react": "^1.47.0",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@types/node": "^24.10.0",

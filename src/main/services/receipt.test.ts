@@ -38,6 +38,7 @@ describe('receipt rendering', () => {
     expect(html).not.toContain("<script>alert('unsafe')</script>");
     expect(html).toContain('<style>');
     expect(html).toContain('@media print');
+    expect(html).toContain('word-break: break-all');
     expect(html).not.toContain('rel="stylesheet"');
   });
 

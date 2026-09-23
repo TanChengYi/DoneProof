@@ -1,0 +1,8 @@
+{
+  "name": "doneproof-node-fail-fixture",
+  "private": true,
+  "scripts": {
+    "pass": "node -e \"console.log('pass')\"",
+    "fail": "node -e \"console.error('intentional failure'); process.exit(2)\""
+  }
+}

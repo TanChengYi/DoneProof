@@ -1,10 +1,17 @@
 import { copyFile, mkdir, stat, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { basename, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { EvidenceArtifact, EvidenceResult, RepositoryFingerprint, RunRecord, Verdict } from '../../shared/models';
-import bundledReceiptCss from '../templates/receipt.css?raw';
 
-const receiptCss = bundledReceiptCss || readFileSync(new URL('../templates/receipt.css', import.meta.url), 'utf8');
+const electronProcess = process as NodeJS.Process & { resourcesPath?: string };
+const receiptCssPath = [
+  fileURLToPath(new URL('../templates/receipt.css', import.meta.url)),
+  join(process.cwd(), 'src', 'main', 'templates', 'receipt.css'),
+  ...(electronProcess.resourcesPath ? [join(electronProcess.resourcesPath, 'app.asar', 'src', 'main', 'templates', 'receipt.css')] : [])
+].find((candidate) => existsSync(candidate));
+if (!receiptCssPath) throw new Error('DoneProof receipt stylesheet is missing');
+const receiptCss = readFileSync(receiptCssPath, 'utf8');
 
 const INLINE_SCREENSHOT_LIMIT = 256 * 1_024;
 

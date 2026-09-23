@@ -1,0 +1,82 @@
+version: 1
+goal: Prove DoneProof is ready to deliver as a local Windows desktop application
+criteria:
+  - id: criterion-lint
+    text: Lint passes
+    required: true
+    evidenceIds:
+      - lint
+  - id: criterion-typecheck
+    text: TypeScript compiles
+    required: true
+    evidenceIds:
+      - typecheck
+  - id: criterion-test
+    text: Unit and integration tests pass
+    required: true
+    evidenceIds:
+      - test
+  - id: criterion-e2e
+    text: Electron user journeys pass
+    required: true
+    evidenceIds:
+      - e2e
+  - id: criterion-build
+    text: Production bundles build
+    required: true
+    evidenceIds:
+      - build
+  - id: criterion-receipt
+    text: Standalone receipt fixture exports
+    required: true
+    evidenceIds:
+      - receipt
+checks:
+  - id: lint
+    label: Lint passes
+    executable: npm.cmd
+    args:
+      - run
+      - lint
+    timeoutMs: 300000
+    maxOutputBytes: 2000000
+  - id: typecheck
+    label: TypeScript compiles
+    executable: npm.cmd
+    args:
+      - run
+      - typecheck
+    timeoutMs: 300000
+    maxOutputBytes: 2000000
+  - id: test
+    label: Unit and integration tests pass
+    executable: npm.cmd
+    args:
+      - test
+    timeoutMs: 600000
+    maxOutputBytes: 2000000
+  - id: e2e
+    label: Electron user journeys pass
+    executable: npm.cmd
+    args:
+      - run
+      - test:e2e
+    timeoutMs: 600000
+    maxOutputBytes: 2000000
+  - id: build
+    label: Production bundles build
+    executable: npm.cmd
+    args:
+      - run
+      - build
+    timeoutMs: 300000
+    maxOutputBytes: 2000000
+  - id: receipt
+    label: Standalone receipt fixture exports
+    executable: npm.cmd
+    args:
+      - run
+      - generate:receipt-fixture
+    timeoutMs: 300000
+    maxOutputBytes: 2000000
+scenarios: []

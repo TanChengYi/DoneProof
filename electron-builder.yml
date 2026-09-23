@@ -4,15 +4,18 @@ directories:
   output: release
 files:
   - out/**/*
+  - src/main/templates/receipt.css
   - package.json
 asar: true
 win:
   target:
     - nsis
     - portable
-  artifactName: ${productName}-${version}-${arch}.${ext}
 nsis:
+  artifactName: ${productName}-Setup-${version}-${arch}.${ext}
   oneClick: false
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
+portable:
+  artifactName: ${productName}-Portable-${version}-${arch}.${ext}

@@ -106,9 +106,10 @@ export function registerIpc({ store }: IpcServices): void {
     const run = await store.getRun(runId);
     if (!run) throw new Error('Run not found');
     const project = await findProject(store, run.projectId);
-    const selection = await dialog.showOpenDialog({ properties: ['openDirectory', 'createDirectory'] });
-    const directory = selection.filePaths[0];
-    if (selection.canceled || !directory) return null;
+    const e2eDirectory = process.env['DONEPROOF_E2E_EXPORT_DIR'];
+    const selection = e2eDirectory ? null : await dialog.showOpenDialog({ properties: ['openDirectory', 'createDirectory'] });
+    const directory = e2eDirectory ?? selection?.filePaths[0];
+    if ((!e2eDirectory && selection?.canceled) || !directory) return null;
     const currentFingerprint = await fingerprintRepository(project.root, join(project.root, 'doneproof.yml'));
     const result = await exportReceipt({ run, currentFingerprint, directory });
     return { htmlPath: result.htmlPath, markdownPath: result.markdownPath };

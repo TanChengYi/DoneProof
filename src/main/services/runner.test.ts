@@ -67,4 +67,10 @@ describe('safe runner', () => {
     const result = await runner.run(spec(['--literal', literal]));
     expect(result.output.trim()).toBe(literal);
   });
+
+  it.runIf(process.platform === 'win32')('runs an approved Windows command shim without enabling spawn shell mode', async () => {
+    const result = await runner.run(spec(['--version'], { executable: 'npm.cmd', args: ['--version'] }));
+    expect(result).toMatchObject({ status: 'passed', exitCode: 0 });
+    expect(result.output).toMatch(/^\d+\.\d+/);
+  });
 });

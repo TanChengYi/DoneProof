@@ -70,6 +70,11 @@ describe('run service', () => {
     );
 
     expect(dependencies.runner.run).toHaveBeenCalledTimes(2);
+    expect(dependencies.runner.run).toHaveBeenCalledWith(
+      expect.objectContaining({ redactionLiterals: expect.arrayContaining([root, root.replaceAll('\\', '/')]) }),
+      {},
+      undefined
+    );
     expect(result.evidence.map((item) => item.status)).toEqual(['failed', 'passed']);
     expect(result.verdict).toBe('failed');
     expect(saved.map((item) => item.evidence.length)).toEqual([0, 1, 2, 2]);

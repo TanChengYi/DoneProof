@@ -1,0 +1,7 @@
+{
+  "name": "doneproof-node-unproven-fixture",
+  "private": true,
+  "scripts": {
+    "slow": "node -e \"setTimeout(() => console.log('late'), 30000)\""
+  }
+}

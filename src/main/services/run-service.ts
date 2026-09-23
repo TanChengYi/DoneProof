@@ -60,7 +60,8 @@ function commandSpec(check: CheckDefinition, root: string) {
     args: check.args,
     cwd: root,
     timeoutMs: check.timeoutMs,
-    maxOutputBytes: check.maxOutputBytes
+    maxOutputBytes: check.maxOutputBytes,
+    redactionLiterals: [...new Set([root, root.replaceAll('\\', '/')])]
   };
 }
 

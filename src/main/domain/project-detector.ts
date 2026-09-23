@@ -20,7 +20,8 @@ async function readOptional(path: string): Promise<string | null> {
 }
 
 function npmCheck(name: string): CheckDefinition {
-  return { id: `npm:${name}`, label: `npm run ${name}`, executable: 'npm', args: ['run', name], ...checkDefaults };
+  const executable = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+  return { id: `npm:${name}`, label: `npm run ${name}`, executable, args: ['run', name], ...checkDefaults };
 }
 
 function pythonCheck(id: string, label: string, args: string[]): CheckDefinition {
