@@ -1,7 +1,7 @@
 # DoneProof Progress
 
 **Current phase:** Core domain services
-**Next milestone:** Safe command execution
+**Next milestone:** Browser proof scenarios
 **Overall status:** In progress
 
 ## Milestones
@@ -15,7 +15,7 @@
 - [x] Scaffold the application and quality gates.
 - [x] Implement domain model and persistence.
 - [x] Implement project detection and Git fingerprinting.
-- [ ] Implement safe command execution.
+- [x] Implement safe command execution.
 - [ ] Implement browser proof scenarios.
 - [ ] Implement evidence mapping and verdicts.
 - [ ] Implement the desktop interface.

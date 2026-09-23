@@ -9,6 +9,12 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    files: ['tests/fixtures/**/*.mjs'],
+    languageOptions: {
+      globals: globals.node
+    }
+  },
+  {
     files: ['src/**/*.{ts,tsx}', 'electron.vite.config.ts'],
     languageOptions: {
       globals: { ...globals.node, ...globals.browser }
