@@ -1,7 +1,7 @@
 # DoneProof Progress
 
-**Current phase:** Application foundation
-**Next milestone:** Local project store
+**Current phase:** Core domain services
+**Next milestone:** Project detection and Git fingerprinting
 **Overall status:** In progress
 
 ## Milestones
@@ -13,7 +13,7 @@
 - [x] Write the product design specification.
 - [x] Write the detailed implementation plan.
 - [x] Scaffold the application and quality gates.
-- [ ] Implement domain model and persistence.
+- [x] Implement domain model and persistence.
 - [ ] Implement project detection and Git fingerprinting.
 - [ ] Implement safe command execution.
 - [ ] Implement browser proof scenarios.
