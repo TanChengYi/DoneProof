@@ -4,7 +4,8 @@ import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { BrowserEvidenceResult, ProjectRecord, RunRecord } from '../../shared/models';
 import type { CommandResult, SafeRunner } from './runner';
-import { createRunService, type RunEvent } from './run-service';
+import { createRunService } from './run-service';
+import type { RunEvent } from '../../shared/api';
 
 let root: string;
 let artifactsDir: string;

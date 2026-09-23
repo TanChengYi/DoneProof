@@ -1,5 +1,7 @@
 import { join } from 'node:path';
 import { app, BrowserWindow, shell } from 'electron';
+import { registerIpc } from './ipc';
+import { createStore } from './services/store';
 
 function createWindow(): BrowserWindow {
   const window = new BrowserWindow({
@@ -31,7 +33,9 @@ function createWindow(): BrowserWindow {
   return window;
 }
 
-void app.whenReady().then(() => {
+void app.whenReady().then(async () => {
+  const store = await createStore(join(app.getPath('userData'), 'store'));
+  registerIpc({ store });
   createWindow();
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();

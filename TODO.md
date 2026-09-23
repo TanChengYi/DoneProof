@@ -1,7 +1,8 @@
 # DoneProof Progress
 
 **Current phase:** Core domain services
-**Next milestone:** Desktop interface
+**Current phase:** Release hardening and dogfood
+**Next milestone:** End-to-end verification and Windows package
 **Overall status:** In progress
 
 ## Milestones
@@ -18,7 +19,7 @@
 - [x] Implement safe command execution.
 - [x] Implement browser proof scenarios.
 - [x] Implement evidence mapping and verdicts.
-- [ ] Implement the desktop interface.
+- [x] Implement the desktop interface.
 - [x] Implement standalone receipts.
 - [ ] Complete unit and integration tests.
 - [ ] Complete Electron end-to-end tests.

@@ -2,8 +2,9 @@ import { copyFile, mkdir, stat, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import type { EvidenceArtifact, EvidenceResult, RepositoryFingerprint, RunRecord, Verdict } from '../../shared/models';
+import bundledReceiptCss from '../templates/receipt.css?raw';
 
-const receiptCss = readFileSync(new URL('../templates/receipt.css', import.meta.url), 'utf8');
+const receiptCss = bundledReceiptCss || readFileSync(new URL('../templates/receipt.css', import.meta.url), 'utf8');
 
 const INLINE_SCREENSHOT_LIMIT = 256 * 1_024;
 

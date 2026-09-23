@@ -1,6 +1,4 @@
-import { contextBridge } from 'electron';
+import { contextBridge, ipcRenderer } from 'electron';
+import { createDoneProofBridge } from './bridge';
 
-contextBridge.exposeInMainWorld('doneproof', {
-  productName: 'DoneProof',
-  version: '0.1.0'
-});
+contextBridge.exposeInMainWorld('doneproof', createDoneProofBridge(ipcRenderer));

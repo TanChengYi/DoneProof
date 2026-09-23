@@ -11,16 +11,11 @@ import type {
   RepositoryFingerprint,
   RunRecord
 } from '../../shared/models';
+import type { RunEvent } from '../../shared/api';
 import { deriveCriterionVerdict, deriveProjectVerdict } from '../domain/verdict';
 import { fingerprintRepository } from '../domain/git-fingerprint';
 import { runBrowserScenario, type BrowserProofContext } from './browser-proof';
 import type { SafeRunner } from './runner';
-
-export type RunEvent =
-  | { type: 'run-started'; runId: string }
-  | { type: 'evidence-started'; runId: string; evidenceId: string; label: string }
-  | { type: 'evidence-completed'; runId: string; evidence: EvidenceResult }
-  | { type: 'run-completed'; run: RunRecord };
 
 export interface RunRequest {
   project: ProjectRecord;

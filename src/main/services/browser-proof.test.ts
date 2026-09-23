@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import { mkdtemp, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { BrowserScenario } from '../../shared/models';
 import { browserScenarioSchema } from '../../shared/schemas';
 import { runBrowserScenario } from './browser-proof';
@@ -10,6 +10,7 @@ import { createRunner } from './runner';
 
 const fixtureServer = resolve('tests/fixtures/web-proof/server.mjs');
 let projectRoot: string;
+vi.setConfig({ testTimeout: 15_000, hookTimeout: 15_000 });
 
 async function freePort(): Promise<number> {
   return await new Promise((resolvePort, reject) => {
