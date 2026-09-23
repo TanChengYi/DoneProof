@@ -1,7 +1,7 @@
 # DoneProof Progress
 
-**Current phase:** Design specification  
-**Next milestone:** Detailed implementation plan  
+**Current phase:** Implementation planning
+**Next milestone:** Application scaffold and quality gates
 **Overall status:** In progress
 
 ## Milestones
@@ -11,7 +11,7 @@
 - [x] Approve product design.
 - [x] Create isolated repository at `D:\CodexPro\DoneProof`.
 - [x] Write the product design specification.
-- [ ] Write the detailed implementation plan.
+- [x] Write the detailed implementation plan.
 - [ ] Scaffold the application and quality gates.
 - [ ] Implement domain model and persistence.
 - [ ] Implement project detection and Git fingerprinting.
@@ -29,7 +29,7 @@
 ## Release Evidence
 
 - Design specification: `docs/superpowers/specs/2026-09-23-doneproof-design.md`
-- Implementation plan: pending
+- Implementation plan: `docs/superpowers/plans/2026-09-23-doneproof-v1.md`
 - Test summary: pending
 - Dogfood receipt: pending
 
@@ -43,4 +43,3 @@
 ## Blockers
 
 None.
-
