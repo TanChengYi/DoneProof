@@ -1,7 +1,7 @@
 # DoneProof Progress
 
-**Current phase:** Implementation planning
-**Next milestone:** Application scaffold and quality gates
+**Current phase:** Application foundation
+**Next milestone:** Local project store
 **Overall status:** In progress
 
 ## Milestones
@@ -12,7 +12,7 @@
 - [x] Create isolated repository at `D:\CodexPro\DoneProof`.
 - [x] Write the product design specification.
 - [x] Write the detailed implementation plan.
-- [ ] Scaffold the application and quality gates.
+- [x] Scaffold the application and quality gates.
 - [ ] Implement domain model and persistence.
 - [ ] Implement project detection and Git fingerprinting.
 - [ ] Implement safe command execution.
